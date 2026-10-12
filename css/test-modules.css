@@ -1,0 +1,240 @@
+/* =========================================================
+   Test Modülleri — Ortak Bileşenler
+   Her test sayfası bu stilleri kullanır
+   ========================================================= */
+
+/* ---------- TEST SAYFASI HEADER ---------- */
+.test-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(15, 15, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.test-header .back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.test-header .back-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+.test-header .back-btn:active {
+  transform: scale(0.94);
+}
+
+.test-header h1 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.test-header .subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+/* ---------- TEST İÇERİK ALANI ---------- */
+.test-content {
+  padding: var(--spacing-md);
+  padding-bottom: calc(var(--spacing-xl) + var(--safe-bottom));
+}
+
+.test-content p.intro {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ---------- BUTONLAR ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-elevated);
+}
+
+.btn-row {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.btn-row .btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ---------- KARTLAR ---------- */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ---------- UYARI / DURUM MESAJI ---------- */
+.alert {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  margin-bottom: var(--spacing-md);
+  border: 1px solid transparent;
+}
+
+.alert-info {
+  background: rgba(94, 92, 230, 0.12);
+  border-color: rgba(94, 92, 230, 0.3);
+  color: #b5b3ff;
+}
+
+.alert-warn {
+  background: rgba(255, 159, 10, 0.12);
+  border-color: rgba(255, 159, 10, 0.3);
+  color: #ffce7a;
+}
+
+.alert-error {
+  background: rgba(255, 69, 58, 0.12);
+  border-color: rgba(255, 69, 58, 0.3);
+  color: #ff8b82;
+}
+
+.alert-success {
+  background: rgba(48, 209, 88, 0.12);
+  border-color: rgba(48, 209, 88, 0.3);
+  color: #7ee8a1;
+}
+
+/* ---------- TEST SONUCU ROZET ---------- */
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.result-badge.ok { background: rgba(48, 209, 88, 0.15); color: var(--success); }
+.result-badge.warn { background: rgba(255, 159, 10, 0.15); color: var(--warning); }
+.result-badge.err { background: rgba(255, 69, 58, 0.15); color: var(--danger); }
+
+/* ---------- ÖLÇÜM IZGARASI ---------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.metric {
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* ---------- PROGRESS BAR ---------- */
+.progress {
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: var(--spacing-sm) 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+  width: 0%;
+}

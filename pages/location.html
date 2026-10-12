@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../icons/cark.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/test-modules.css" />
+  <title>Konum (GPS) Testi — Donanım Test</title>
+  <script>
+    (function() {
+      try {
+        const t = localStorage.getItem('hw-test-theme');
+        const sys = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = t || sys;
+      } catch (_) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="test-header">
+    <a href="../index.html" class="back-btn" aria-label="Geri">‹</a>
+    <div>
+      <h1>Konum (GPS)</h1>
+      <p class="subtitle">Konum ve doğruluk testi</p>
+    </div>
+  </header>
+
+  <main class="test-content" id="locationTestRoot">
+
+    <p class="intro">
+      GPS ve ağ tabanlı konumlandırmayı test edin. Konum izni istendiğinde
+      onaylayın. Açık alanda test etmek daha doğru sonuç verir.
+    </p>
+
+    <div id="locationAlert" class="alert alert-info">
+      📍 Konum erişimi için aşağıdaki butona basın.
+    </div>
+
+    <!-- Destek ve izin bilgisi -->
+    <div class="card">
+      <h3>Servis Durumu</h3>
+      <div class="info-table">
+        <div class="info-row">
+          <span class="info-key">Geolocation API</span>
+          <span class="info-val" id="locApiSupport">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">İzin Durumu</span>
+          <span class="info-val" id="locPermission">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Konum Servisi</span>
+          <span class="info-val" id="locServiceState">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Konum bilgileri -->
+    <div class="card">
+      <h3>Konum Bilgileri</h3>
+      <div class="info-table">
+        <div class="info-row">
+          <span class="info-key">Enlem</span>
+          <span class="info-val" id="locLatitude">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Boylam</span>
+          <span class="info-val" id="locLongitude">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Doğruluk (Accuracy)</span>
+          <span class="info-val" id="locAccuracy">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Rakım</span>
+          <span class="info-val" id="locAltitude">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Rakım Doğruluğu</span>
+          <span class="info-val" id="locAltitudeAccuracy">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Yön (Heading)</span>
+          <span class="info-val" id="locHeading">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Hız</span>
+          <span class="info-val" id="locSpeed">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Zaman Damgası</span>
+          <span class="info-val" id="locTimestamp">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Doğruluk göstergesi -->
+    <div class="card">
+      <h3>Doğruluk</h3>
+      <div class="progress">
+        <div class="progress-fill" id="locAccuracyBar"></div>
+      </div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value" id="locAccuracyValue">—</div>
+          <div class="metric-label">Metre</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" id="locUpdateCount">0</div>
+          <div class="metric-label">Güncelleme</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="locStartBtn">Konum Al</button>
+      <button class="btn btn-secondary" id="locWatchBtn">Canlı İzle</button>
+      <button class="btn btn-secondary" id="locStopBtn" disabled>Durdur</button>
+    </div>
+
+  </main>
+
+  <script type="module" src="../js/tests/location.js"></script>
+</body>
+</html>

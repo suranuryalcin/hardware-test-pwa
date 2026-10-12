@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../icons/cark.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/test-modules.css" />
+  <title>Ağ Testi — Donanım Test</title>
+</head>
+<body>
+
+  <header class="test-header">
+    <a href="../index.html" class="back-btn" aria-label="Geri">‹</a>
+    <div>
+      <h1>Ağ Bağlantısı</h1>
+      <p class="subtitle">İnternet, hız ve ping testi</p>
+    </div>
+  </header>
+
+  <main class="test-content" id="networkTestRoot">
+
+    <p class="intro">
+      Ağ bağlantı durumu, tahmini bant genişliği ve gecikme ölçülür. Downlink
+      ve RTT değerleri tarayıcının sağladığı yaklaşık değerlerdir.
+    </p>
+
+    <div id="networkAlert" class="alert alert-info">
+      Ağ bilgileri yükleniyor...
+    </div>
+
+    <div class="card">
+      <h3>Bağlantı Bilgileri</h3>
+      <div class="info-table">
+        <div class="info-row">
+          <span class="info-key">Durum</span>
+          <span class="info-val" id="netStatus">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Bağlantı Tipi</span>
+          <span class="info-val" id="netType">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Tahmini Hız</span>
+          <span class="info-val" id="netDownlink">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Gecikme (RTT)</span>
+          <span class="info-val" id="netRtt">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Veri Tasarrufu</span>
+          <span class="info-val" id="netSaveData">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Ping Testi</h3>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value" id="pingValue">—</div>
+          <div class="metric-label">Ortalama (ms)</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" id="pingCount">0</div>
+          <div class="metric-label">Ölçüm</div>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="pingStartBtn">Ping Testi Başlat</button>
+    </div>
+
+  </main>
+
+  <script type="module" src="../js/tests/network.js"></script>
+</body>
+</html>

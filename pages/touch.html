@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../icons/cark.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/test-modules.css" />
+  <title>Dokunmatik Testi — Donanım Test</title>
+
+  <style>
+    /* Bu sayfaya özel: canvas tam ekran */
+    body.touch-page {
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.touch-page .test-header {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    body.touch-page .canvas-wrap {
+      flex: 1;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body.touch-page #touchCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      background: #15151c;
+    }
+
+    /* Üstte yüzen bilgi kartı */
+    body.touch-page .hud {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      gap: 8px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    body.touch-page .hud-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    body.touch-page .hud-chip .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    /* Alt sağda yüzen kontrol butonları */
+    body.touch-page .fab-row {
+      position: absolute;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    body.touch-page .fab {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    body.touch-page .fab:active {
+      transform: scale(0.9);
+    }
+
+    body.touch-page .fab:hover {
+      background: rgba(0, 0, 0, 0.75);
+    }
+  </style>
+</head>
+<body class="touch-page">
+
+  <header class="test-header">
+    <a href="../index.html" class="back-btn" aria-label="Geri">‹</a>
+    <div>
+      <h1>Dokunmatik</h1>
+      <p class="subtitle">Dokunma ve çoklu temas testi</p>
+    </div>
+  </header>
+
+  <!-- Tam ekran canvas alanı -->
+  <div class="canvas-wrap">
+
+    <!-- Üstte yüzen HUD -->
+    <div class="hud">
+      <div class="hud-chip">
+        <span class="dot"></span>
+        Aktif: <span id="touchActivePoints">0</span>
+      </div>
+      <div class="hud-chip">
+        Maks: <span id="touchMaxPoints">0</span>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="touchCanvas"></canvas>
+
+    <!-- Sağ altta yüzen FAB'lar -->
+    <div class="fab-row">
+      <button class="fab" id="touchClearBtn" aria-label="Temizle" title="Temizle">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M6 19a2 2 0 002 2h8a2 2 0 002-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+        </svg>
+      </button>
+      <button class="fab" id="touchFullscreenBtn" aria-label="Tam ekran" title="Tam ekran">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="../js/tests/touch.js"></script>
+</body>
+</html>

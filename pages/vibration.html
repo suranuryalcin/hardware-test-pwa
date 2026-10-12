@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../icons/cark.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/test-modules.css" />
+  <title>Titreşim Testi — Donanım Test</title>
+</head>
+<body>
+
+  <header class="test-header">
+    <a href="../index.html" class="back-btn" aria-label="Geri">‹</a>
+    <div>
+      <h1>Titreşim</h1>
+      <p class="subtitle">Titreşim motoru ve ritim testi</p>
+    </div>
+  </header>
+
+  <main class="test-content" id="vibrationTestRoot">
+
+    <p class="intro">
+      Aşağıdaki butonlarla farklı sürelerde ve ritimlerde titreşim testleri
+      yapın. Cihazı elinizde tutarak titreşim motorunun çalışıp çalışmadığını
+      kontrol edin.
+    </p>
+
+    <div id="vibrationSupportAlert" class="alert alert-info">
+      Titreşim desteği kontrol ediliyor...
+    </div>
+
+    <div class="card">
+      <h3>Kısa Testler</h3>
+      <div class="btn-row">
+        <button class="btn btn-secondary" data-vibrate="100">100 ms</button>
+        <button class="btn btn-secondary" data-vibrate="300">300 ms</button>
+        <button class="btn btn-secondary" data-vibrate="800">800 ms</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Ritim Testleri</h3>
+      <div class="btn-row">
+        <button class="btn btn-secondary" data-pattern="[200,100,200]">Çift Nabız</button>
+        <button class="btn btn-secondary" data-pattern="[100,100,100,100,100]">Beşli</button>
+        <button class="btn btn-secondary" data-pattern="[500,200,500,200,500]">Uzun Ritim</button>
+        <button class="btn btn-secondary" data-pattern="[50,50,50,50,50,50,50,50]">Hızlı Seri</button>
+      </div>
+    </div>
+
+    <button class="btn btn-danger" id="vibrationStopBtn" style="width:100%;">
+      ■ Titreşimi Durdur
+    </button>
+
+  </main>
+
+  <script type="module" src="../js/tests/vibration.js"></script>
+</body>
+</html>

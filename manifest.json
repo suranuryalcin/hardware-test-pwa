@@ -1,0 +1,59 @@
+{
+  "name": "Donanım Test - Pixel 7",
+  "short_name": "HW Test",
+  "description": "Android cihaz donanım bileşenlerini test etmek için PWA uygulaması",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "portrait-primary",
+  "background_color": "#0f0f14",
+  "theme_color": "#0f0f14",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+  {
+    "src": "./icons/cark.png",
+    "sizes": "192x192 512x512 any",
+    "type": "image/png",
+    "purpose": "any"
+  },
+  {
+    "src": "./icons/cark.png",
+    "sizes": "192x192 512x512 any",
+    "type": "image/png",
+    "purpose": "maskable"
+  }
+],
+  
+
+  "screenshots": [
+    {
+      "src": "./icons/cark.png",
+      "sizes": "1080x2400",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Renk Testi",
+      "short_name": "Renk",
+      "url": "./pages/color.html",
+      "icons": [{ "src": "./icons/cark.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Dokunmatik Testi",
+      "short_name": "Dokunmatik",
+      "url": "./pages/touch.html",
+      "icons": [{ "src": "./icons/cark.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Hoparlör Testi",
+      "short_name": "Hoparlör",
+      "url": "./pages/speaker.html",
+      "icons": [{ "src": "./icons/cark.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../icons/cark.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/test-modules.css" />
+  <title>Ekran Renk Testi — Donanım Test</title>
+</head>
+<body>
+
+  <header class="test-header">
+    <a href="../index.html" class="back-btn" aria-label="Geri">‹</a>
+    <div>
+      <h1>Ekran Renkleri</h1>
+      <p class="subtitle">Tam ekran ana renk testi</p>
+    </div>
+  </header>
+
+  <main class="test-content" id="colorTestRoot">
+
+    <p class="intro">
+      Aşağıdaki butonlarla ana renkleri tam ekranda görüntüleyin. Ölü piksel,
+      renk sapması ve ekran homojenliğini kontrol edin. Ekrana dokunarak
+      tam ekrandan çıkabilirsiniz.
+    </p>
+
+    <div class="card">
+      <h3>Test Renkleri</h3>
+      <div class="btn-row" id="colorButtons">
+        <button class="btn btn-secondary" data-color="#ff0000" style="background:#ff0000;color:#fff;">Kırmızı</button>
+        <button class="btn btn-secondary" data-color="#00ff00" style="background:#00ff00;color:#000;">Yeşil</button>
+        <button class="btn btn-secondary" data-color="#0000ff" style="background:#0000ff;color:#fff;">Mavi</button>
+        <button class="btn btn-secondary" data-color="#ffffff" style="background:#ffffff;color:#000;">Beyaz</button>
+        <button class="btn btn-secondary" data-color="#000000" style="background:#000000;color:#fff;">Siyah</button>
+        <button class="btn btn-secondary" data-color="#808080" style="background:#808080;color:#fff;">Gri</button>
+        <button class="btn btn-secondary" data-color="#ffff00" style="background:#ffff00;color:#000;">Sarı</button>
+        <button class="btn btn-secondary" data-color="#00ffff" style="background:#00ffff;color:#000;">Cyan</button>
+        <button class="btn btn-secondary" data-color="#ff00ff" style="background:#ff00ff;color:#fff;">Magenta</button>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      💡 İpucu: Karanlık bir odada test ederek ekran homojenliğini daha iyi değerlendirebilirsiniz.
+    </div>
+
+    <!-- Tam ekran overlay — JS ile doldurulur -->
+    <div id="fullscreenOverlay" hidden></div>
+  </main>
+
+  <script type="module" src="../js/tests/screen-color.js"></script>
+</body>
+</html>

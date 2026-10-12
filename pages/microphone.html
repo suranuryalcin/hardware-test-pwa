@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../icons/cark.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/test-modules.css" />
+  <title>Mikrofon Testi — Donanım Test</title>
+</head>
+<body>
+
+  <header class="test-header">
+    <a href="../index.html" class="back-btn" aria-label="Geri">‹</a>
+    <div>
+      <h1>Mikrofon</h1>
+      <p class="subtitle">Kayıt ve dalga formu testi</p>
+    </div>
+  </header>
+
+  <main class="test-content" id="microphoneTestRoot">
+
+    <p class="intro">
+      Mikrofon izni istendiğinde onaylayın. Konuştuğunuzda dalga formu ve ses
+      seviyesi göstergesi hareket etmelidir. Sessiz ortamda test ederek arka
+      plan gürültüsünü değerlendirebilirsiniz.
+    </p>
+
+    <div id="micPermissionAlert" class="alert alert-info">
+      🎤 Mikrofon erişimi için aşağıdaki butona basın.
+    </div>
+
+    <div class="card">
+      <h3>Ses Seviyesi</h3>
+      <div class="progress">
+        <div class="progress-fill" id="micLevelBar"></div>
+      </div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value" id="micLevel">0</div>
+          <div class="metric-label">Seviye</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" id="micPeak">0</div>
+          <div class="metric-label">Tepe</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Dalga Formu</h3>
+      <canvas id="micWaveform" style="width:100%;height:160px;background:#15151c;border-radius:12px;display:block;"></canvas>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="micStartBtn">Başlat</button>
+      <button class="btn btn-secondary" id="micStopBtn" disabled>Durdur</button>
+    </div>
+
+  </main>
+
+  <script type="module" src="../js/tests/microphone.js"></script>
+</body>
+</html>
